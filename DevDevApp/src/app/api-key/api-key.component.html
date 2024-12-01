@@ -1,0 +1,11 @@
+<div class="api-key-container">
+  <h2>Create API Key</h2>
+  <form (ngSubmit)="createApiKey()">
+    <div>
+      <label for="permissions">Permissions (comma-separated):</label>
+      <input type="text" id="permissions" [(ngModel)]="permissions" name="permissions" required />
+    </div>
+    <button type="submit">Generate API Key</button>
+  </form>
+  <p *ngIf="newApiKey">Generated API Key: <strong>{{ newApiKey }}</strong></p>
+</div>

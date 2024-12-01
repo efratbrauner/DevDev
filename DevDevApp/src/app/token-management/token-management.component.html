@@ -1,0 +1,38 @@
+<div class="token-management-container">
+    <h2>JWT Token Generator</h2>
+    <form (ngSubmit)="authenticateApiKey()">
+      <div>
+        <label for="apiKey">API Key:</label>
+        <input type="text" id="apiKey" [(ngModel)]="apiKey" name="apiKey" required />
+      </div>
+      <button type="submit">Generate JWT</button>
+    </form>
+    <p *ngIf="jwtToken">Generated JWT Token: <strong>{{ jwtToken }}</strong></p>
+  
+    <h2>User Tokens</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Token</th>
+          <th>Permissions</th>
+          <th>Last Used</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let token of userTokens">
+          <td>{{ token.id }}</td>
+          <td>{{ token.jwtToken }}</td>
+          <td>{{ token.permissions.join(', ') }}</td>
+          <td>{{ token.lastUsed || 'Never' }}</td>
+          <td>{{ token.isRevoked ? 'Revoked' : 'Active' }}</td>
+          <td>
+            <button (click)="revokeApiKey(token.id)" [disabled]="token.isRevoked">Revoke</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
