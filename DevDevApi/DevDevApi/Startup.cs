@@ -42,12 +42,7 @@ namespace DevDevApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevDevApi", Version = "v1" });
             });
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllowAll", builder =>
-            //        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            //}); 
-            //services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
